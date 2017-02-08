@@ -1,3 +1,16 @@
 <h1>
   {{title}}
 </h1>
+
+<h2>
+  {{ burger.name }}
+</h2>
+<input [(ngModel)]="burger.name" placeholder="name">
+
+<hr />
+
+<ul>
+  <li *ngFor="let ingredient of ingredients">
+    <span>{{ingredient.name}}</span>
+  </li>
+</ul>

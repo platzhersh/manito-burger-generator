@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
 
 import { BurgerComponent } from './burger/burger.component';
+import {IngredientService} from "./ingredient/ingredient.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { BurgerComponent } from './burger/burger.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [IngredientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
