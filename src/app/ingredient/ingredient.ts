@@ -1,3 +1,4 @@
 export class Ingredient {
-  name: string
+  name: string;
+  price: number;
 }

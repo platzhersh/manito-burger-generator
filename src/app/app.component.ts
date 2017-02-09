@@ -10,10 +10,7 @@ import {IngredientService} from "./ingredient/ingredient.service";
 })
 export class AppComponent {
   title = 'Manito Burger Generator';
-  burger : Burger = {
-    name: 'Stadtturm Burger',
-    ingredients: []
-  };
+  burger: Burger = new Burger('Stadtturm Burger', []);
   ingredients: Ingredient[];
 
   constructor(private ingredientService: IngredientService) {}
@@ -26,6 +23,14 @@ export class AppComponent {
 
   getIngredients(): void {
     this.ingredientService.getIngredients().then(ingredients => this.ingredients = ingredients);;
+  }
+
+  addIngredient(ingredient: Ingredient) {
+    this.burger.addIngredient(ingredient);
+  }
+
+  removeIngredient(ingredient: Ingredient) {
+    this.burger.removeIngredient(ingredient);
   }
 
 }

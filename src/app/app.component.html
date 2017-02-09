@@ -2,15 +2,31 @@
   {{title}}
 </h1>
 
+<p>Name your Burger:</p>
+<input [(ngModel)]="burger.name" placeholder="Burger Name">
+
 <h2>
   {{ burger.name }}
 </h2>
-<input [(ngModel)]="burger.name" placeholder="name">
+
+
+<ul>
+  <li *ngFor="let ingredient of burger.ingredients"
+    (click)="removeIngredient(ingredient)">
+    <span>{{ingredient.name}} CHF {{ingredient.price}}</span>
+  </li>
+</ul>
+
+<p>Total: CHF {{burger.getTotal()}}</p>
 
 <hr />
 
+<p>Click on an ingredient to add it to your burger.</p>
+
 <ul>
-  <li *ngFor="let ingredient of ingredients">
-    <span>{{ingredient.name}}</span>
+  <li
+    *ngFor="let ingredient of ingredients"
+    (click)="addIngredient(ingredient)">
+    <span>{{ingredient.name}} {{ingredient.price}}</span>
   </li>
 </ul>
