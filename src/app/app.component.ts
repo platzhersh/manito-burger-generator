@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Burger } from './burger/burger'
 import {Ingredient} from "./ingredient/ingredient";
 import {IngredientService} from "./ingredient/ingredient.service";
+import {SauceService} from "./sauce/sauce.service";
+import {Sauce} from "./sauce/sauce";
+import {BurgerService} from "./burger/burger.service";
 
 @Component({
   selector: 'app-root',
@@ -12,17 +15,26 @@ export class AppComponent {
   title = 'Manito Burger Generator';
   burger: Burger = new Burger('Stadtturm Burger', []);
   ingredients: Ingredient[];
+  sauces: Sauce[];
 
-  constructor(private ingredientService: IngredientService) {}
+  constructor(
+    private ingredientService: IngredientService,
+    private sauceService: SauceService,
+    private burgerService: BurgerService
+  ) {}
 
   // ngOnInit is a lifecycle hook
   // NEVER call services / do anything else that might be complicated in the constructor
   ngOnInit(): void {
     this.getIngredients();
+    this.getSauces();
   }
 
   getIngredients(): void {
-    this.ingredientService.getIngredients().then(ingredients => this.ingredients = ingredients);;
+    this.ingredientService.getIngredients().then(ingredients => this.ingredients = ingredients);
+  }
+  getSauces(): void {
+    this.sauceService.getSauces().then(sauces => this.sauces = sauces);
   }
 
   addIngredient(ingredient: Ingredient) {
@@ -31,6 +43,20 @@ export class AppComponent {
 
   removeIngredient(ingredient: Ingredient) {
     this.burger.removeIngredient(ingredient);
+  }
+
+  onRandomBurger() {
+    console.log('create random burger');
+    this.burgerService.getRandomBurger().then(burger => {
+      console.log(burger);
+      this.burger.ingredients = [];
+      this.burger.ingredients = burger.ingredients;
+    });
+  }
+
+  onReset() {
+    console.log('reset burger');
+    this.burger.ingredients = [];
   }
 
 }

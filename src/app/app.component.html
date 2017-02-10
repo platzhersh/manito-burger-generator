@@ -9,6 +9,8 @@
   {{ burger.name }}
 </h2>
 
+<button (click)="onRandomBurger()">Generate Random Burger</button>
+<button (click)="onReset()">Reset</button>
 
 <ul>
   <li *ngFor="let ingredient of burger.ingredients"
@@ -21,11 +23,22 @@
 
 <hr />
 
+<h2>Ingredients</h2>
 <p>Click on an ingredient to add it to your burger.</p>
 
 <ul>
   <li
     *ngFor="let ingredient of ingredients"
+    (click)="addIngredient(ingredient)">
+    <span>{{ingredient.name}} {{ingredient.price}}</span>
+  </li>
+</ul>
+
+<h2>Sauces</h2>
+
+<ul>
+  <li
+    *ngFor="let ingredient of sauces"
     (click)="addIngredient(ingredient)">
     <span>{{ingredient.name}} {{ingredient.price}}</span>
   </li>

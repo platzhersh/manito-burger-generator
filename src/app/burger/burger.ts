@@ -17,6 +17,10 @@ export class Burger {
     this.ingredients.push(ingredient);
   }
 
+  addIngredients(ingredients: Array<Ingredient>) {
+    Array.prototype.push.apply(this.ingredients, ingredients);
+  }
+
   removeIngredient(ingredient: Ingredient) {
     let index = this.ingredients.indexOf(ingredient, 0);
     if (index > -1) {

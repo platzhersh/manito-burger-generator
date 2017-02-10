@@ -8,6 +8,8 @@ import { IngredientComponent } from './ingredient/ingredient.component';
 
 import { BurgerComponent } from './burger/burger.component';
 import {IngredientService} from "./ingredient/ingredient.service";
+import {SauceService} from "./sauce/sauce.service";
+import {BurgerService} from "./burger/burger.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,11 @@ import {IngredientService} from "./ingredient/ingredient.service";
     FormsModule,
     HttpModule
   ],
-  providers: [IngredientService],
+  providers: [
+    IngredientService,
+    SauceService,
+    BurgerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
