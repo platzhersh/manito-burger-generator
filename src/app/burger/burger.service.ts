@@ -12,6 +12,7 @@ export class BurgerService {
   constructor(private ingredientService: IngredientService, private sauceService: SauceService) { }
 
   // TODO: avoid duplicate ingredients
+  // TODO: create random name
   getRandomBurger(): Promise<Burger> {
     let ingredients: Promise<Array<Ingredient>>;
     let sauces: Promise<Array<Sauce>>;
