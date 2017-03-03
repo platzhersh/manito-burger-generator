@@ -1,45 +1,66 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
 
-<p>Name your Burger:</p>
-<input [(ngModel)]="burger.name" placeholder="Burger Name">
+  <div class="main">
+    <h1>
+      {{title}}
+    </h1>
 
-<h2>
-  {{ burger.name }}
-</h2>
+    <h2 contenteditable="true">
+      {{ burger.name }}
+    </h2>
+    <p>Click on the name above to edit it.</p>
 
-<button (click)="onRandomBurger()">Generate Random Burger</button>
-<button (click)="onReset()">Reset</button>
+    <button (click)="onRandomBurger()">Generate Random Burger</button>
+    <button (click)="onReset()">Reset</button>
 
-<ul>
-  <li *ngFor="let ingredient of burger.ingredients"
-    (click)="removeIngredient(ingredient)">
-    <span>{{ingredient.name}} CHF {{ingredient.price}}</span>
-  </li>
-</ul>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Ingredient</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingredient of burger.ingredients">
+          <td>{{ingredient.name}}</td>
+          <td>CHF {{ingredient.price}}</td>
+          <td><a href="#" (click)="removeIngredient(ingredient)">Remove</a></td>
+        </tr>
+        <tr id="total">
+          <td>Total</td>
+          <td>CHF {{burger.getTotal()}}</td>
+          <td></td>
+        </tr>
 
-<p>Total: CHF {{burger.getTotal()}}</p>
+      </tbody>
+    </table>
 
-<hr />
 
-<h2>Ingredients</h2>
-<p>Click on an ingredient to add it to your burger.</p>
+    <div class="ingredients">
+        <h2>Ingredients</h2>
+        <p>Click on an ingredient to add it to your burger.</p>
 
-<ul>
-  <li
-    *ngFor="let ingredient of ingredients"
-    (click)="addIngredient(ingredient)">
-    <span>{{ingredient.name}} {{ingredient.price}}</span>
-  </li>
-</ul>
+        <ul>
+          <li
+            *ngFor="let ingredient of ingredients">
+            <span (click)="addIngredient(ingredient)">{{ingredient.name}} {{ingredient.price}}</span>
+          </li>
+        </ul>
 
-<h2>Sauces</h2>
+        <h2>Sauces</h2>
 
-<ul>
-  <li
-    *ngFor="let ingredient of sauces"
-    (click)="addIngredient(ingredient)">
-    <span>{{ingredient.name}} {{ingredient.price}}</span>
-  </li>
-</ul>
+        <ul>
+          <li
+            *ngFor="let ingredient of sauces">
+            <span (click)="addIngredient(ingredient)">{{ingredient.name}} {{ingredient.price}}</span>
+          </li>
+        </ul>
+    </div>
+
+  </div>
+
+</div>
+
+
+

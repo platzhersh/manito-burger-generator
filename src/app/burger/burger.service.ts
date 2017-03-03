@@ -11,6 +11,8 @@ export class BurgerService {
 
   constructor(private ingredientService: IngredientService, private sauceService: SauceService) { }
 
+
+
   // TODO: avoid duplicate ingredients
   // TODO: create random name
   getRandomBurger(): Promise<Burger> {
@@ -22,10 +24,13 @@ export class BurgerService {
     ingredients = this.ingredientService.getIngredients().then( i => {
       console.log('-----> IngredientService.then()', i);
       let ingredientCount = Math.floor(Math.random() * i.length) + 1;
-
+      let i_copy = i;
       let randomIngredients: Array<Ingredient> = [];
       for(let j = 0; j < ingredientCount; j++) {
-        randomIngredients.push(i[Math.floor(Math.random() * i.length)]);
+        let randomIndex = Math.floor(Math.random() * i_copy.length);
+        let ingredient = i_copy[randomIndex];
+        randomIngredients.push(ingredient);
+        i_copy = i_copy.filter((value => value != ingredient));
       }
       console.log('--> ingredients', randomIngredients);
       return randomIngredients;
@@ -33,10 +38,13 @@ export class BurgerService {
     // get sauces
     sauces = this.sauceService.getSauces().then( s => {
       let sauceCount = Math.floor(Math.random() * 2) + 1;
-
+      let s_copy = s;
       let randomSauces: Array<Ingredient> = [];
       for(let i = 0; i < sauceCount; i++) {
-        randomSauces.push(s[Math.floor(Math.random() * s.length)]);
+        let randomIndex = Math.floor(Math.random() * s_copy.length);
+        let sauce = s_copy[randomIndex];
+        randomSauces.push(sauce);
+        s_copy = s_copy.filter((value => value != sauce));
       }
       console.log('--> sauces', randomSauces);
       return randomSauces;

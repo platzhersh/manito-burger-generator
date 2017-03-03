@@ -1,11 +1,13 @@
 import { Ingredient } from '../ingredient/ingredient'
 import {forEach} from "@angular/router/src/utils/collection";
+import {Sauce} from "../sauce/sauce";
 
 const baseprice = 8.0;
 
 export class Burger {
   name: string;
   ingredients: Array<Ingredient>;
+  sauces: Array<Sauce>;
 
   // a simple constructor.
   constructor(name: string, ingredients: Array<Ingredient>) {

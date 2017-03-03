@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background: #fafafa url('http://manito.ch/file/2016/05/blackboard.jpg') no-repeat top center fixed;
+  background-size: cover;
+  color: #fff;
+  font-size: 24px;
+}
+
+.container{
+  width: 100%;
+  text-align: center;
+}
+
+.main {
+  max-width: 960px;
+  width: 100%;
+  margin: auto;
+  margin-top: 2em;
+  background: rgba(0,0,0,0.4);
+}
+
+.ingredients {
+  display: none;
+}
+
+table.price-table {
+  margin: auto;
+  min-width: 300px;
+  text-align: left;
+}
+
+table.price-table #total td {
+  border-top: 1px solid #fff;
+}
