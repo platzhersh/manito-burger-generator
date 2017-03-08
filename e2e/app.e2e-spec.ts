@@ -1,6 +1,6 @@
 import { ManitoBurgerGeneratorPage } from './app.po';
 
-describe('manito-burger-generator App', function() {
+describe('manito-burger-generator App', () => {
   let page: ManitoBurgerGeneratorPage;
 
   beforeEach(() => {
