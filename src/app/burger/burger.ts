@@ -8,11 +8,15 @@ export class Burger {
   name: string;
   ingredients: Array<Ingredient>;
   sauces: Array<Sauce>;
+  fixedPrice?: number;
 
   // a simple constructor.
-  constructor(name: string, ingredients: Array<Ingredient>) {
+  constructor(name: string, ingredients: Array<Ingredient>, price?: number) {
     this.name = name;
     this.ingredients = ingredients;
+    if (price) {
+      this.fixedPrice = price;
+    }
   }
 
   addIngredient(ingredient: Ingredient) {
@@ -31,12 +35,16 @@ export class Burger {
   }
 
   getTotal(): number {
-    let total = baseprice;
+    if (this.fixedPrice) {
+      return this.fixedPrice;
+    } else {
+      let total = baseprice;
 
-    for (let i of this.ingredients) {
-      total += i.price;
+      for (let i of this.ingredients) {
+        total += i.price;
+      }
+      return total;
     }
-    return total;
   }
 
 }

@@ -4,7 +4,7 @@ import {SauceService} from "../sauce/sauce.service";
 import {Ingredient} from "../ingredient/ingredient";
 import {Sauce} from "../sauce/sauce";
 import {Burger} from "./burger";
-import {BURGERS} from "../mock-burger";
+import {BURGERS} from "../../assets/mocks/mock-burger";
 
 @Injectable()
 export class BurgerService {
