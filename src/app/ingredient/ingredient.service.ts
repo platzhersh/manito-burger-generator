@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Ingredient} from "./ingredient";
-import {INGREDIENTS} from "../mock-ingredients";
+import {INGREDIENTS} from "../../assets/mocks/mock-ingredients";
 
 @Injectable()
 export class IngredientService {

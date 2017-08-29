@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Sauce} from "./sauce";
-import {SAUCES} from "../mock-sauces";
+import {SAUCES} from "../../assets/mocks/mock-sauces";
 
 @Injectable()
 export class SauceService {

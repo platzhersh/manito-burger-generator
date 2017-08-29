@@ -4,11 +4,13 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-prebuild": "npm install -g http-server",
+    "heroku-postbuild": "ng build --prod",
+    "start": "http-server dist/"
   },
   "private": true,
   "dependencies": {
@@ -44,5 +46,10 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.4.2",
     "typescript": "^2.5.1"
+  },
+  "engines": {
+    "node": "6.10.0",
+    "npm": "3.10.8"
   }
+
 }
