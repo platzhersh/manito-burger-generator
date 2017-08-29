@@ -5,22 +5,10 @@ import {IngredientService} from './ingredient/ingredient.service';
 import {SauceService} from './sauce/sauce.service';
 import {Sauce} from './sauce/sauce';
 import {BurgerService} from './burger/burger.service';
-import {
-  trigger,
-  animate,
-  transition
-} from '@angular/animations';
-
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  animations: [
-    trigger('itemState', [
-      transition('void => *', animate('100ms ease-in')),
-      transition('* => void', animate('100ms ease-out'))
-    ])
-  ]
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   title = 'Manito Burger Generator';
