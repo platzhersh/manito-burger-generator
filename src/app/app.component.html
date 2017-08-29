@@ -1,66 +1,62 @@
-<div class="container">
+<h1>
+{{title}}
+</h1>
 
-  <div class="main">
-    <h1>
-      {{title}}
-    </h1>
-
-    <h2 contenteditable="true">
-      {{ burger.name }}
-    </h2>
-    <p>Click on the name above to edit it.</p>
-
-    <button (click)="onRandomBurger()">Generate Random Burger</button>
-    <button (click)="onReset()">Reset</button>
-
-    <table class="price-table">
-      <thead>
-        <tr>
-          <th>Ingredient</th>
-          <th>Price</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let ingredient of burger.ingredients">
-          <td>{{ingredient.name}}</td>
-          <td>CHF {{ingredient.price}}</td>
-          <td><a href="#" (click)="removeIngredient(ingredient)">Remove</a></td>
-        </tr>
-        <tr id="total">
-          <td>Total</td>
-          <td>CHF {{burger.getTotal()}}</td>
-          <td></td>
-        </tr>
-
-      </tbody>
-    </table>
-
-
-    <div class="ingredients">
-        <h2>Ingredients</h2>
-        <p>Click on an ingredient to add it to your burger.</p>
-
-        <ul>
-          <li
-            *ngFor="let ingredient of ingredients">
-            <span (click)="addIngredient(ingredient)">{{ingredient.name}} {{ingredient.price}}</span>
-          </li>
-        </ul>
-
-        <h2>Sauces</h2>
-
-        <ul>
-          <li
-            *ngFor="let ingredient of sauces">
-            <span (click)="addIngredient(ingredient)">{{ingredient.name}} {{ingredient.price}}</span>
-          </li>
-        </ul>
-    </div>
-
-  </div>
-
+<!-- power buttons -->
+<div>
+  <button type="button" class="button" (click)="onRandomBurger()">Generate Random Burger</button>
+  <button type="button" class="button alert" (click)="onReset()"><img zf-iconic="" icon="circle-x" data-direction="top" size="medium">Reset</button>
 </div>
 
 
+<!-- order summary -->
+<table class="price-table">
+  <thead>
+  <tr>
+    <th width="50%">Ingredient</th>
+    <th width="25%">Price</th>
+    <th width="50%"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ingredient of burger.ingredients" class="item" [@itemState]="ingredient">
+    <td>{{ingredient.name}}</td>
+    <td>CHF {{ingredient.price | number:'1.2' }}</td>
+    <td><button class="button alert small" (click)="removeIngredient(ingredient)"><img zf-iconic="" icon="ban" data-direction="top" size="medium">Remove</button></td>
+  </tr>
+  <tr id="total">
+    <td>Total</td>
+    <td>CHF {{burger.getTotal() | number:'1.2' }}</td>
+    <td></td>
+  </tr>
 
+  </tbody>
+</table>
+
+<button type="button" class="button disabled">Order Burger</button>
+
+
+<!-- burger configurator -->
+<div class="burger-components cell small-12 grid-x">
+  <div class="ingredients small-12 medium-6">
+    <h2>Ingredients</h2>
+
+    <ul>
+      <li
+        *ngFor="let ingredient of ingredients">
+        <button class="button" type="button" (click)="addIngredient(ingredient)">{{ingredient.name}} CHF {{ingredient.price | number:'1.2' }}</button>
+      </li>
+    </ul>
+  </div>
+  <div class="sauces">
+    <h2>Sauces</h2>
+
+    <ul>
+      <li
+        *ngFor="let ingredient of sauces">
+        <button class="button" type="button" (click)="addIngredient(ingredient)">{{ingredient.name}} CHF {{ingredient.price | number:'1.2' }}</button>
+      </li>
+    </ul>
+  </div>
+
+</div>

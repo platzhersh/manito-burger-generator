@@ -5,11 +5,21 @@ import {IngredientService} from "./ingredient/ingredient.service";
 import {SauceService} from "./sauce/sauce.service";
 import {Sauce} from "./sauce/sauce";
 import {BurgerService} from "./burger/burger.service";
+import {
+  trigger,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  animations: [
+    trigger('itemState', [
+      transition('void => *', animate('100ms ease-in')),
+      transition('* => void', animate('100ms ease-out'))
+    ])
+  ]
 })
 export class AppComponent {
   title = 'Manito Burger Generator';
@@ -17,6 +27,7 @@ export class AppComponent {
   ingredients: Ingredient[];
   sauces: Sauce[];
 
+  // NEVER call services / do anything else that might be complicated in the constructor
   constructor(
     private ingredientService: IngredientService,
     private sauceService: SauceService,
@@ -24,7 +35,6 @@ export class AppComponent {
   ) {}
 
   // ngOnInit is a lifecycle hook
-  // NEVER call services / do anything else that might be complicated in the constructor
   ngOnInit(): void {
     this.getIngredients();
     this.getSauces();

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'foundation/foundation.min.css';
+
+body, * {
+  box-sizing: border-box;
+}
+
+tr#total {
+  font-size: 1.2em;
+}
+
+
+/* The animation code */
+@keyframes itemAdded {
+  from {background: green;}
+  to {background: inherit;}
+}
+
+/* The element to apply the animation to */
+tr.item td {
+  background: inherit;
+  animation-name: itemAdded;
+  animation-duration: 2s;
+}
