@@ -19,7 +19,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let ingredient of burger.ingredients" class="item" [@itemState]="ingredient">
+  <tr *ngFor="let ingredient of burger.ingredients" class="item">
     <td>{{ingredient.name}}</td>
     <td>CHF {{ingredient.price | number:'1.2' }}</td>
     <td><button class="button alert small" (click)="removeIngredient(ingredient)"><img zf-iconic="" icon="ban" data-direction="top" size="medium">Remove</button></td>
