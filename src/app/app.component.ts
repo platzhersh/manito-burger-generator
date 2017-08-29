@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
-import { Burger } from './burger/burger'
-import {Ingredient} from "./ingredient/ingredient";
-import {IngredientService} from "./ingredient/ingredient.service";
-import {SauceService} from "./sauce/sauce.service";
-import {Sauce} from "./sauce/sauce";
-import {BurgerService} from "./burger/burger.service";
+import { Component, OnInit } from '@angular/core';
+import { Burger } from './burger/burger';
+import {Ingredient} from './ingredient/ingredient';
+import {IngredientService} from './ingredient/ingredient.service';
+import {SauceService} from './sauce/sauce.service';
+import {Sauce} from './sauce/sauce';
+import {BurgerService} from './burger/burger.service';
 import {
   trigger,
   animate,
   transition
 } from '@angular/animations';
+
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ import {
     ])
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Manito Burger Generator';
   burger: Burger = new Burger('Stadtturm Burger', []);
   ingredients: Ingredient[];
@@ -38,12 +39,6 @@ export class AppComponent {
   ngOnInit(): void {
     this.getIngredients();
     this.getSauces();
-
-    if (location.protocol != 'http:')
-    {
-      console.log('Trying to access via https');
-      location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
-    }
   }
 
   getIngredients(): void {
