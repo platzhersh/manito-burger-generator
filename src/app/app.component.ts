@@ -38,6 +38,12 @@ export class AppComponent {
   ngOnInit(): void {
     this.getIngredients();
     this.getSauces();
+
+    if (location.protocol != 'http:')
+    {
+      console.log('Trying to access via https');
+      location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
+    }
   }
 
   getIngredients(): void {
