@@ -37,23 +37,23 @@
 <div class="burger-components cell small-12 grid-x">
   <div class="ingredients small-12 medium-6">
     <h2>Ingredients</h2>
+    <div *ngFor="let ingredient of ingredients">
+      <button
+        class="button"
+        type="button"
+        (click)="addIngredient(ingredient)">
+        {{ingredient.name}} CHF {{ingredient.price | number:'1.2' }}
+      </button>
+    </div>
 
-    <ul>
-      <li
-        *ngFor="let ingredient of ingredients">
-        <button class="button" type="button" (click)="addIngredient(ingredient)">{{ingredient.name}} CHF {{ingredient.price | number:'1.2' }}</button>
-      </li>
-    </ul>
   </div>
   <div class="sauces">
     <h2>Sauces</h2>
 
-    <ul>
-      <li
-        *ngFor="let ingredient of sauces">
-        <button class="button" type="button" (click)="addIngredient(ingredient)">{{ingredient.name}} CHF {{ingredient.price | number:'1.2' }}</button>
-      </li>
-    </ul>
+    <div
+      *ngFor="let ingredient of sauces">
+      <button class="button" type="button" (click)="addIngredient(ingredient)">{{ingredient.name}} CHF {{ingredient.price | number:'1.2' }}</button>
+    </div>
   </div>
 
 </div>
