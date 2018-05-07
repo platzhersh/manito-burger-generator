@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { IngredientComponent } from './ingredient/ingredient.component';
+import { IngredientComponent } from './components/ingredient/ingredient.component';
 
-import { BurgerComponent } from './burger/burger.component';
-import {IngredientService} from './ingredient/ingredient.service';
-import {SauceService} from './sauce/sauce.service';
-import {BurgerService} from './burger/burger.service';
+import { BurgerComponent } from './components/burger/burger.component';
+import {IngredientService} from './core/ingredient/ingredient.service';
+import {SauceService} from './core/sauce/sauce.service';
+import {BurgerService} from './core/burger/burger.service';
 
 @NgModule({
   declarations: [

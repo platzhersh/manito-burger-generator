@@ -1,4 +1,4 @@
-import {Sauce} from "../../app/sauce/sauce";
+import {Sauce} from "../../app/models/sauce";
 
 export const SAUCES: Sauce[] = [
   { name: 'Hausgemachte Mayo', price: 1.0 },

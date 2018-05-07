@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Burger } from './burger/burger';
-import {Ingredient} from './ingredient/ingredient';
-import {IngredientService} from './ingredient/ingredient.service';
-import {SauceService} from './sauce/sauce.service';
-import {Sauce} from './sauce/sauce';
-import {BurgerService} from './burger/burger.service';
+import { Burger } from './models/burger';
+import {Ingredient} from './models/ingredient';
+import {IngredientService} from './core/ingredient/ingredient.service';
+import {SauceService} from './core/sauce/sauce.service';
+import {Sauce} from './models/sauce';
+import {BurgerService} from './core/burger/burger.service';
 
 @Component({
   selector: 'app-root',

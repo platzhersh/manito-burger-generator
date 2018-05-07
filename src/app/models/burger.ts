@@ -1,6 +1,6 @@
-import { Ingredient } from '../ingredient/ingredient'
+import { Ingredient } from './ingredient'
 import {forEach} from "@angular/router/src/utils/collection";
-import {Sauce} from "../sauce/sauce";
+import {Sauce} from "./sauce";
 
 const baseprice = 8.0;
 

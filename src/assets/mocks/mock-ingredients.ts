@@ -1,4 +1,4 @@
-import {Ingredient} from "../../app/ingredient/ingredient";
+import {Ingredient} from "../../app/models/ingredient";
 
 export const INGREDIENTS: Ingredient[] = [
   { name: 'Karamelisierte Zwiebeln', price: 1.0 },
