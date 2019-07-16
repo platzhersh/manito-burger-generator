@@ -1,4 +1,4 @@
-import {Burger} from "../../app/models/burger";
+import { Burger } from "../../app/shared/models/burger/burger";
 
 export const BURGERS: Burger[] = [
   new Burger('Stadtturm Burger', [], 20.00),

@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { IngredientComponent } from './components/ingredient/ingredient.component';
 
-import { BurgerComponent } from './components/burger/burger.component';
-import {IngredientService} from './core/ingredient/ingredient.service';
-import {SauceService} from './core/sauce/sauce.service';
-import {BurgerService} from './core/burger/burger.service';
+import { IngredientService } from './core/ingredient/ingredient.service';
+import { SauceService } from './core/sauce/sauce.service';
+import { BurgerService } from './core/burger/burger.service';
+import { BurgerComponent } from "./shared/components/burger/burger.component";
+import { IngredientComponent } from "./shared/components/ingredient/ingredient.component";
 
 @NgModule({
   declarations: [
@@ -29,4 +29,5 @@ import {BurgerService} from './core/burger/burger.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

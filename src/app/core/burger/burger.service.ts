@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import {IngredientService} from "../ingredient/ingredient.service";
-import {SauceService} from "../sauce/sauce.service";
-import {Ingredient} from "../../models/ingredient";
-import {Sauce} from "../../models/sauce";
-import {Burger} from "../../models/burger";
-import {BURGERS} from "../../../assets/mocks/mock-burger";
+import { IngredientService } from "../ingredient/ingredient.service";
+import { SauceService } from "../sauce/sauce.service";
+
+import { BURGERS } from "../../../assets/mocks/mock-burger";
+import { Burger } from "../../shared/models/burger/burger";
+import { Ingredient } from "../../shared/models/ingredient/ingredient";
+import { Sauce } from "../../shared/models/sauce/sauce";
 
 @Injectable()
 export class BurgerService {
 
-  constructor(private ingredientService: IngredientService, private sauceService: SauceService) { }
-
+  constructor(private ingredientService: IngredientService, private sauceService: SauceService) {
+  }
 
 
   // TODO: avoid duplicate ingredients
@@ -21,12 +22,12 @@ export class BurgerService {
 
     const burger = new Burger('', []);
     // get ingredients
-    ingredients = this.ingredientService.getIngredients().then( i => {
+    ingredients = this.ingredientService.getIngredients().then(i => {
       console.log('-----> IngredientService.then()', i);
       let ingredientCount = Math.floor(Math.random() * i.length) + 1;
       let i_copy = i;
       let randomIngredients: Array<Ingredient> = [];
-      for(let j = 0; j < ingredientCount; j++) {
+      for (let j = 0; j < ingredientCount; j++) {
         let randomIndex = Math.floor(Math.random() * i_copy.length);
         let ingredient = i_copy[randomIndex];
         randomIngredients.push(ingredient);
@@ -36,11 +37,11 @@ export class BurgerService {
       return randomIngredients;
     });
     // get sauces
-    sauces = this.sauceService.getSauces().then( s => {
+    sauces = this.sauceService.getSauces().then(s => {
       let sauceCount = Math.floor(Math.random() * 2) + 1;
       let s_copy = s;
       let randomSauces: Array<Ingredient> = [];
-      for(let i = 0; i < sauceCount; i++) {
+      for (let i = 0; i < sauceCount; i++) {
         let randomIndex = Math.floor(Math.random() * s_copy.length);
         let sauce = s_copy[randomIndex];
         randomSauces.push(sauce);

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Burger } from './models/burger';
-import {Ingredient} from './models/ingredient';
-import {IngredientService} from './core/ingredient/ingredient.service';
-import {SauceService} from './core/sauce/sauce.service';
-import {Sauce} from './models/sauce';
-import {BurgerService} from './core/burger/burger.service';
+import { Burger } from './shared/models/burger/burger';
+import { Ingredient } from './shared/models/ingredient/ingredient';
+import { IngredientService } from './core/ingredient/ingredient.service';
+import { SauceService } from './core/sauce/sauce.service';
+import { Sauce } from './shared/models/sauce/sauce';
+import { BurgerService } from './core/burger/burger.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
     private ingredientService: IngredientService,
     private sauceService: SauceService,
     private burgerService: BurgerService
-  ) {}
+  ) {
+  }
 
   // ngOnInit is a lifecycle hook
   ngOnInit(): void {
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
   getIngredients(): void {
     this.ingredientService.getIngredients().then(ingredients => this.ingredients = ingredients);
   }
+
   getSauces(): void {
     this.sauceService.getSauces().then(sauces => this.sauces = sauces);
   }

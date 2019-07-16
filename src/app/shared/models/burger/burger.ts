@@ -1,6 +1,5 @@
-import { Ingredient } from './ingredient'
-import {forEach} from "@angular/router/src/utils/collection";
-import {Sauce} from "./sauce";
+import { Ingredient } from "../ingredient/ingredient";
+import { Sauce } from "../sauce/sauce";
 
 const baseprice = 8.0;
 
@@ -30,7 +29,7 @@ export class Burger {
   removeIngredient(ingredient: Ingredient) {
     let index = this.ingredients.indexOf(ingredient, 0);
     if (index > -1) {
-       this.ingredients.splice(index, 1);
+      this.ingredients.splice(index, 1);
     }
   }
 

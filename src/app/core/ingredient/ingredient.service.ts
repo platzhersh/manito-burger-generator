@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Ingredient} from "../../models/ingredient";
-import {INGREDIENTS} from "../../../assets/mocks/mock-ingredients";
+import { Ingredient } from "../../shared/models/ingredient/ingredient";
+import { INGREDIENTS } from "../../../assets/mocks/mock-ingredients";
 
 @Injectable()
 export class IngredientService {
 
-  constructor() { }
+  constructor() {
+  }
 
   getIngredients(): Promise<Ingredient[]> {
     return Promise.resolve(INGREDIENTS);
